@@ -15,3 +15,7 @@ Set `VERBOSE` flag in `merge-sort.js`
 
 hit me up with questions, commments, or suggestions.
 
+ps: putting output in the repo is generally bad practice, but this is for fun.
+You can make your own output file by running
+`node exec.js > FILENAME`
+it will make a new file if FILENAME does not exist, or overwrite it.
