@@ -6,7 +6,7 @@ const MAX_CARDS = 3; // per shuffle step
 
 const isSorted = array => {
   for( let i = 0; i < array.length - 1; i++ ){
-    if( array[i] > array[i+1] ) return false;
+    if( array[i] + 1 !== array[i+1] ) return false;
   }
   return true;
 }
@@ -14,7 +14,7 @@ const isSorted = array => {
 // writing a good shuffle algorithm is OUTSIDE THE SCOPE OF THIS PROJECT. lol
 const shuffle = array => { // it's not random, but it's good enough
   let halfIndex = Math.floor( array.length / 2 );
-  for( let i = 0; i < 6; i++ ){
+  for( let i = 0; i < 4; i++ ){
     //console.log(`shuffling ${i}`);
     let firstHalf = array.slice( 0, halfIndex );
     let secondHalf = array.slice( halfIndex );

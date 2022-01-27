@@ -72,7 +72,7 @@ const mergeSort = arr => {
       }*/
 
       if (DEBUG) console.log("sub:\t", sub, "\n", "nextSub:", nextSub);     
-      if (VERBOSE) console.log( arr.slice(0, firstUnqueuedIndex).map( n => ' ').join(',') + arr.slice(firstUnqueuedIndex, nextSecondUnqueuedIndex + 1).join(',') );
+      if (VERBOSE) console.log( arr.slice(0, firstUnqueuedIndex).map( n => ' ').join(',') + arr.slice(firstUnqueuedIndex, secondUnqueuedIndex + 1).join(',') + '|' + arr.slice(nextFirstUnqueuedIndex, nextSecondUnqueuedIndex + 1).join(','));
 
       insertionIndex = firstUnqueuedIndex;
 
