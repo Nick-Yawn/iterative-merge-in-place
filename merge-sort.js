@@ -15,8 +15,8 @@ const mergeSort = arr => {
   let sortingIndex;
   let nextSortingIndex;
   let insertionIndex;
-  let sub = [];
-  let nextSub = [];
+  let sub = new Array(arr.length);
+  let nextSub = new Array(arr.length);
   let subHasEls;
   let nextSubHasEls;
 
@@ -61,8 +61,15 @@ const mergeSort = arr => {
       // so how else can I keep track of them?
       // oh well, it's O(n)  
       // could do this with a for loop in order to use fixed subarrays in memory.
-      sub = arr.slice(firstUnqueuedIndex, secondUnqueuedIndex + 1); 
-      nextSub = arr.slice(nextFirstUnqueuedIndex, nextSecondUnqueuedIndex + 1);
+      // sub = arr.slice(firstUnqueuedIndex, secondUnqueuedIndex + 1);
+      for( let i = 0; i < secondUnqueuedIndex - firstUnqueuedIndex + 1; i++ ){
+        sub[i] = arr[firstUnqueuedIndex + i];
+      } 
+      //nextSub = arr.slice(nextFirstUnqueuedIndex, nextSecondUnqueuedIndex + 1);
+      for( let i = 0; i < nextSecondUnqueuedIndex - nextFirstUnqueuedIndex + 1; i++ ){
+        nextSub[i] = arr[nextFirstUnqueuedIndex + 1];
+      }
+
       if (DEBUG) console.log("sub:\t", sub, "\n", "nextSub:", nextSub);     
       if (VERBOSE) console.log( arr.slice(0, firstUnqueuedIndex).map( n => ' ').join(',') + arr.slice(firstUnqueuedIndex, nextSecondUnqueuedIndex + 1).join(',') );
 

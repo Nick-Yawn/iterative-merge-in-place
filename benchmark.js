@@ -1,7 +1,7 @@
 const shuffle = require('./exec.js');
 const mergeSort = require('./merge-sort.js');
 
-for( let i = 1; i < 8; i++ ){
+for( let i = 1; i < 9; i++ ){
   let length = 10 ** i
   let array = new Array( length );
 
