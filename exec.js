@@ -11,6 +11,7 @@ const isSorted = array => {
   return true;
 }
 
+// writing a good shuffle algorithm is OUTSIDE THE SCOPE OF THIS PROJECT. lol
 const shuffle = array => { // it's not random, but it's good enough
   let halfIndex = Math.floor( array.length / 2 );
   for( let i = 0; i < 6; i++ ){
