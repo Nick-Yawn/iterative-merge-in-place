@@ -30,8 +30,7 @@ const mergeSort = arr => {
   //  Maybe there is a better way.
   while( true ){
     if (DEBUG) console.log( "queue:" + queue.slice(queueIndex).join(',') );
-    if (DEBUG) console.log( arr.join(',') );
-    if (VERBOSE) console.log('');
+    if (DEBUG) console.log( arr.join(' ') );
 
     // these two values represent the start and end indices of our first subarray. always already sorted
     firstUnqueuedIndex = queue[queueIndex++];
@@ -72,7 +71,7 @@ const mergeSort = arr => {
       }*/
 
       if (DEBUG) console.log("sub:\t", sub, "\n", "nextSub:", nextSub);     
-      if (VERBOSE) console.log( arr.slice(0, firstUnqueuedIndex).map( n => ' ').join(',') + arr.slice(firstUnqueuedIndex, secondUnqueuedIndex + 1).join(',') + '|' + arr.slice(nextFirstUnqueuedIndex, nextSecondUnqueuedIndex + 1).join(','));
+      if (VERBOSE) printArr(arr, firstUnqueuedIndex, secondUnqueuedIndex, nextFirstUnqueuedIndex, nextSecondUnqueuedIndex);
 
       insertionIndex = firstUnqueuedIndex;
 
@@ -95,12 +94,29 @@ const mergeSort = arr => {
         subHasEls =  firstUnqueuedIndex + sortingIndex <= secondUnqueuedIndex;
         nextSubHasEls = nextFirstUnqueuedIndex + nextSortingIndex <= nextSecondUnqueuedIndex; 
       } 
-      if (VERBOSE) console.log( arr.slice(0, firstUnqueuedIndex).map( n => ' ').join(',') + arr.slice(firstUnqueuedIndex, nextSecondUnqueuedIndex + 1).join(',') );
+      if (VERBOSE) printArr(arr, firstUnqueuedIndex, secondUnqueuedIndex, nextFirstUnqueuedIndex, nextSecondUnqueuedIndex, true);
 
       queue.push(firstUnqueuedIndex, nextSecondUnqueuedIndex);
     }
 
   }
+}
+
+const printArr = (arr, firstIndex, secondIndex, nextFirstIndex, nextSecondIndex, sorted = false) => {
+  let value, string, base;
+  console.log(
+    ( arr.slice(0, firstIndex).length ? 
+    arr.slice(0, firstIndex).map( n => {
+      string = ' ';
+      base = 10;
+      while( n >= base ){
+        string += ' ';
+        base *= 10;
+      }
+      return string;
+    }).join(' ') + ' ' : '' )
+    + arr.slice(firstIndex, secondIndex + 1).join(' ') 
+    + (sorted ? ' ' : '|') + arr.slice(nextFirstIndex, nextSecondIndex + 1).join(' '));
 }
 
 module.exports = mergeSort;

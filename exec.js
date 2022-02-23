@@ -1,6 +1,6 @@
 const mergeSort = require('./merge-sort');
 
-const ARRAY_LENGTH = 15;
+const ARRAY_LENGTH = 42;
 const MIN_CARDS = 0; // per shuffle step
 const MAX_CARDS = 3; // per shuffle step
 
@@ -83,12 +83,11 @@ shuffle(arr);
 
 //print array
 console.log( "SORT START" );
-console.log( arr.join(',') );
+console.log( arr.join(' ') );
 
 
 mergeSort(arr);
 
-console.log( arr.join(',') );
 
 console.log( `isSorted: ${isSorted(arr)}`);
 
