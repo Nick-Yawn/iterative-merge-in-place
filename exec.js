@@ -79,7 +79,10 @@ for( let i = 0; i < arr.length; i++ ){
 }
 
 //shuffle array
+
+console.time(`shuffling ${ARRAY_LENGTH}`);//
 shuffle(arr);
+console.timeEnd(`shuffling ${ARRAY_LENGTH}`);
 
 //print array
 console.log( "SORT START" );
