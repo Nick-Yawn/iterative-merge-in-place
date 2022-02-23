@@ -1,4 +1,4 @@
-const shuffle = require('./exec.js');
+const shuffle = require('./shuffle.js');
 const mergeSort = require('./merge-sort.js');
 
 for( let i = 1; i < 9; i++ ){

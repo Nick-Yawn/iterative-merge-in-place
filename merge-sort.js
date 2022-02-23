@@ -1,7 +1,6 @@
 const DEBUG = false;
-const VERBOSE = true;
 
-const mergeSort = arr => {
+const mergeSort = (arr, verbose = false) => {
   // are you ready for an adventure?
 
   let queue = new Array(arr.length * 2);    
@@ -71,7 +70,7 @@ const mergeSort = arr => {
       }*/
 
       if (DEBUG) console.log("sub:\t", sub, "\n", "nextSub:", nextSub);     
-      if (VERBOSE) printArr(arr, firstUnqueuedIndex, secondUnqueuedIndex, nextFirstUnqueuedIndex, nextSecondUnqueuedIndex);
+      if (verbose) printArr(arr, firstUnqueuedIndex, secondUnqueuedIndex, nextFirstUnqueuedIndex, nextSecondUnqueuedIndex);
 
       insertionIndex = firstUnqueuedIndex;
 
@@ -94,7 +93,7 @@ const mergeSort = arr => {
         subHasEls =  firstUnqueuedIndex + sortingIndex <= secondUnqueuedIndex;
         nextSubHasEls = nextFirstUnqueuedIndex + nextSortingIndex <= nextSecondUnqueuedIndex; 
       } 
-      if (VERBOSE) printArr(arr, firstUnqueuedIndex, secondUnqueuedIndex, nextFirstUnqueuedIndex, nextSecondUnqueuedIndex, true);
+      if (verbose) printArr(arr, firstUnqueuedIndex, secondUnqueuedIndex, nextFirstUnqueuedIndex, nextSecondUnqueuedIndex, true);
 
       queue.push(firstUnqueuedIndex, nextSecondUnqueuedIndex);
     }

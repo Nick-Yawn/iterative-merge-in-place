@@ -1,4 +1,5 @@
 const mergeSort = require('./merge-sort');
+const shuffle = require('./shuffle');
 
 const ARRAY_LENGTH = 15;
 const MIN_CARDS = 0; // per shuffle step
@@ -11,20 +12,7 @@ const isSorted = array => {
   return true;
 }
 
-const shuffle = array => {
-  const length = array.length;
-  let temp;
-  let index;
-  for( let i = 0; i < length - 1; i++ ) {
-    index = Math.floor( Math.random() * (length - i - 1) + i + 1);
-    temp = array[index];
-    array[index] = array[i];
-    array[i] = temp;
-  }
-}
-
 /* OLD SHUFFLE
-// writing a good shuffle algorithm is OUTSIDE THE SCOPE OF THIS PROJECT. lol
 const shuffle = array => { // it's not random, but it's good enough
   let halfIndex = Math.floor( array.length / 2 );
   for( let i = 0; i < 4; i++ ){
@@ -89,7 +77,7 @@ console.log( "SORT START" );
 console.log( arr.join(' ') );
 
 
-mergeSort(arr);
+mergeSort(arr, true); // second argument is verbosity
 
 
 console.log( `isSorted: ${isSorted(arr)}`);
