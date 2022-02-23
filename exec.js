@@ -11,6 +11,19 @@ const isSorted = array => {
   return true;
 }
 
+const shuffle = array => {
+  const length = array.length;
+  let temp;
+  let index;
+  for( let i = 0; i < length - 1; i++ ) {
+    index = Math.floor( Math.random() * (length - i - 1) + i + 1);
+    temp = array[index];
+    array[index] = array[i];
+    array[i] = temp;
+  }
+}
+
+/* OLD SHUFFLE
 // writing a good shuffle algorithm is OUTSIDE THE SCOPE OF THIS PROJECT. lol
 const shuffle = array => { // it's not random, but it's good enough
   let halfIndex = Math.floor( array.length / 2 );
@@ -55,6 +68,8 @@ const shuffle = array => { // it's not random, but it's good enough
     array[swapIndex] = temp;      // yes, I can use destructuring, but being able to swap WITHOUT destructuring is important.
   }
 }
+*/
+
 // make array
 let arr = new Array(ARRAY_LENGTH);
 
