@@ -18,3 +18,7 @@ ps: putting output in the repo is generally bad practice, but this is for fun.
 You can make your own output file by running
 `node exec.js > FILENAME`
 it will make a new file if FILENAME does not exist, otherwise overwrite.
+
+
+## TODO:
+I should pass the verbose flag to the function itself. Then I can run verbose in exec and not verbose in benchmark!
