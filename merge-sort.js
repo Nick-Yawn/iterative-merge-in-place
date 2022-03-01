@@ -19,9 +19,20 @@ const mergeSort = (arr, verbose = false) => {
   let subHasEls;
   let nextSubHasEls;
 
-  for( let i = 0; i < arr.length; i++ ){
-    queue[2*i] = i;
-    queue[2*i + 1] = i;
+  // the strange thing is, this queue setup crashes at 5592406 iterations,
+  // no matter if doing it forward or backward.
+  // This is some kind of optimization bug in Chromium.
+  let i = arr.length - 1;
+  let j = 0;
+  try{
+    while( i >= 0 ){
+      queue[2*i] = i;
+      queue[2*i + 1] = i;
+      i--;
+      j++;
+    }
+  } catch (e) {
+    console.log( i, j, e);
   }
   // these subarrays are 'sorted'
 
