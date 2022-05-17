@@ -11,8 +11,8 @@ const mergeSort = (arr, verbose = false) => {
                                 // JS is not the language to care about such low-level optimizing
   let nextFirstUnqueuedIndex;   // ...probably
   let nextSecondUnqueueIndex;   
-  let sortingIndex;
-  let nextSortingIndex;
+  let sortingIndex;             // UPDATE: I did some testing and this seems to actually make things slower. Will fix it later. 
+  let nextSortingIndex;         // Don't let this be your takeaway! Declare your variables at the lowest scope required!
   let insertionIndex;
   let sub = new Array(arr.length);
   let nextSub = new Array(arr.length);
