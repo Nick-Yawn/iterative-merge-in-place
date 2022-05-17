@@ -71,6 +71,7 @@ const mergeSort = (arr, verbose = false) => {
       // oh well, it's O(n)  
       // could do this with a for loop in order to use fixed subarrays in memory.
       // UPDATE: I did the optimizing. Runtime for 10,000,000 went from 3966ms > 2723ms. Wow!
+      // UPDATE UPDATE: I broke something in the process! nevermind! changed back to what it was at first.
       sub = arr.slice(firstUnqueuedIndex, secondUnqueuedIndex + 1);
     /*  for( let i = 0; i < secondUnqueuedIndex - firstUnqueuedIndex + 1; i++ ){
         sub[i] = arr[firstUnqueuedIndex + i];
