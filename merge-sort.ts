@@ -1,6 +1,6 @@
 const DEBUG = false;
 
-const mergeSort = (arr, verbose = false) => {
+export default function mergeSort(arr: number[], verbose = false) {
 
   let queue = new Array(arr.length * 2);    
   let queueIndex = 0; // using shift is expensive, so we're gonna fake the queue (again).
@@ -50,11 +50,6 @@ const mergeSort = (arr, verbose = false) => {
       let sortingIndex = 0;
       let nextSortingIndex = 0;
 
-      // I don't like this but don't know how else to do this part
-      // it's possible to override all the first subarrays values
-      // so how else can I keep track of them?
-      // oh well, it's O(n)  
-      // could do this with a for loop in order to use fixed subarrays in memory.
       let sub = arr.slice(firstUnqueuedIndex, secondUnqueuedIndex + 1);
       let nextSub = arr.slice(nextFirstUnqueuedIndex, nextSecondUnqueuedIndex + 1);
 
@@ -90,8 +85,8 @@ const mergeSort = (arr, verbose = false) => {
   }
 }
 
-const printArr = (arr, firstIndex, secondIndex, nextFirstIndex, nextSecondIndex, sorted = false) => {
-  let value, string, base;
+const printArr = (arr: number[], firstIndex: number, secondIndex: number, nextFirstIndex: number, nextSecondIndex: number, sorted = false) => {
+  let string, base;
   console.log(
     ( arr.slice(0, firstIndex).length ? 
     arr.slice(0, firstIndex).map( n => {
@@ -106,5 +101,3 @@ const printArr = (arr, firstIndex, secondIndex, nextFirstIndex, nextSecondIndex,
     + arr.slice(firstIndex, secondIndex + 1).join(' ') 
     + (sorted ? ' ' : '|') + arr.slice(nextFirstIndex, nextSecondIndex + 1).join(' '));
 }
-
-module.exports = mergeSort;

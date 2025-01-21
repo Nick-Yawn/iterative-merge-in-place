@@ -1,9 +1,9 @@
-const mergeSort = require('./merge-sort');
-const shuffle = require('./shuffle');
+import mergeSort from './merge-sort';
+import shuffle from './shuffle';
 
 const ARRAY_LENGTH = 15;
 
-const isSorted = array => {
+function isSorted(array: number[]) {
   for( let i = 0; i < array.length - 1; i++ ){
     if( array[i] + 1 !== array[i+1] ) return false;
   }

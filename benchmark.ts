@@ -1,5 +1,5 @@
-const shuffle = require('./shuffle.js');
-const mergeSort = require('./merge-sort.js');
+import mergeSort from './merge-sort';
+import shuffle from './shuffle';
 
 for( let i = 1; i < 9; i++ ){
   let length = 10 ** i
@@ -21,7 +21,7 @@ for( let i = 1; i < 9; i++ ){
 }
 
 //assumes int
-function stringFormat(int){
+function stringFormat(int: number): string {
   let chars = int.toString().split('');
   let newChars = [];
   let counter = 0;

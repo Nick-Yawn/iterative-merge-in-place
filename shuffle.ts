@@ -1,4 +1,4 @@
-const shuffle = array => {
+export default function shuffle(array: number[]) {
   const length = array.length;
   let temp;
   let index;
@@ -9,5 +9,3 @@ const shuffle = array => {
     array[i] = temp;
   }
 }
-
-module.exports = shuffle;
